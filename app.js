@@ -4,6 +4,8 @@ import rateLimit from 'express-rate-limit';
 import cookieParser from "cookie-parser";
 import cors from 'cors';
 
+import compression from "compression";
+
 const limiter = rateLimit({
   // only 100 request in 1 hours
   max: 100,
@@ -15,6 +17,8 @@ const limiter = rateLimit({
 
 import dotenv from "dotenv";
 dotenv.config();
+
+app.use(compression())
 
 app.use(cors());
 
